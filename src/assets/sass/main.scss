@@ -617,9 +617,10 @@
 		border: 0;
 		display: inline-block;
 		position: relative;
+		padding: 10%;
 
 		img {
-			border-radius: 3px;
+			border-radius: 50%;
 			display: block;
 		}
 
@@ -1072,15 +1073,15 @@
 		}
 
 		.content {
-			@include padding(2em, 4em);
+			@include padding(4em, 2em);
 			@include vendor('order', '2');
 			max-width: 48em;
 			width: 60%;
 		}
 
-		&:nth-child(2n) {
-			@include vendor('flex-direction', 'row-reverse');
-		}
+		//&:nth-child(2n) {
+		//	@include vendor('flex-direction', 'row-reverse');
+		//}
 
 		@for $i from 1 through _misc(max-spotlights) {
 			$j: 0.075 * $i;
@@ -1592,13 +1593,13 @@
 			@include vendor('transform', 'scale(1)');
 			@include vendor('transition', ('transform 0.5s ease', 'opacity 0.5s ease'));
 			display: inline-block;
-			font-size: 1.75em;
+			font-size: 2.5em;
 			opacity: 1;
 			padding: 0.35em 1em;
 			position: relative;
 			z-index: 1;
 
-			&:before, &:after {
+			&:after {
 				@include vendor('transition', 'width 0.85s ease');
 				@include vendor('transition-delay', '0.25s');
 				background: _palette(fg-bold);
@@ -1607,11 +1608,6 @@
 				height: 2px;
 				position: absolute;
 				width: 100%;
-			}
-
-			&:before {
-				top: 0;
-				left: 0;
 			}
 
 			&:after {
@@ -1623,6 +1619,7 @@
 		p {
 			letter-spacing: _size(letter-spacing-alt);
 			text-transform: uppercase;
+			font-size: 1.75em;
 
 			a {
 				color: inherit;
@@ -1774,7 +1771,7 @@
 	#main {
 		> header {
 			@include padding(12em, 0);
-			@include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/banner.jpg")'));
+			@include vendor('background-image', ('linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.5))', 'url("../images/small.jpg")'));
 			background-attachment: fixed;
 			background-position: center center;
 			background-repeat: no-repeat;
@@ -1931,3 +1928,549 @@
 			}
 		}
 	}
+
+
+
+	.experience-section {
+
+		h1 {
+
+			font-size: 1.75em;
+		}
+
+		.experience-description {
+			padding: 0 100px;
+			font-size: 1.2em;
+			@include MQ(L) {
+				padding: 0;
+			}
+			a {
+				display: inline-block;
+				position: relative;
+				font-weight: 500;
+				transition: all 0.3s ease;
+				&:after {
+					content: '';
+					width: 100%;
+					position: absolute;
+					left: 0;
+					bottom: 2px;
+					border-width: 0 0 .5px;
+					border-style: solid;
+					border-color: $white;
+					transition: all 0.3s ease;
+				}
+			}
+		}
+		.experience-wrapper {
+			padding: 30px;
+			@include MQ(ML) {
+				padding-left: 0;
+			}
+			@include MQ(S600) {
+				padding: 30px 0;
+			}
+			#timeline {
+				position: relative;
+				padding: 2em 0;
+				margin: 0 auto;
+				width: 100%;
+				max-width: 1170px;
+				margin: 0 auto;
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: calc(50% - 1px);
+					height: 100%;
+					width: 2px;
+					background: $blue;
+					@include MQ(ML) {
+						left: 20px;
+						margin-left: 0px;
+					}
+					@include MQ(SM) {
+						left: 10px;
+					}
+				}
+				&:after {
+					content: '';
+					display: table;
+					clear: both;
+				}
+				.timeline-block {
+					position: relative;
+					transition: all 0.3s ease;
+					margin: 1em 0;
+					&:after {
+						content: "";
+						display: table;
+						clear: both;
+					}
+					&:first-child {
+						margin-top: 0;
+					}
+					&:last-child {
+						margin-bottom: 0;
+					}
+					&:nth-child(odd) {
+						@include MQ(L) {
+							margin-top: 0;
+							margin-bottom: 2em;
+						}
+						.timeline-content {
+							float: left;
+							@include MQ(L) {
+								right: 10px;
+							}
+							@include MQ(ML) {
+								right: auto;
+							}
+							&:before {
+								top: 24px;
+								left: 100%;
+								border-color: transparent;
+								border-left-color: $dark-grey;
+								@include MQ(ML) {
+									top: 16px;
+									left: auto;
+									border-color: transparent;
+									border-right-color: $dark-grey;
+								}
+							}
+							.date {
+								left: auto;
+								text-align: right;
+								right: -33%;
+							}
+						}
+					}
+					&:nth-child(even) {
+						.date {
+							text-align: right;
+							left: auto;
+							right: 55%;
+							@include MQ(ML) {
+								text-align: left;
+								font-size: 14px;
+								color: $light-grey;
+								position: relative;
+								top: -40px;
+								left: 95px;
+								right: auto;
+							}
+							@include MQ(SM) {
+								left: 66px;
+							}
+						}
+					}
+					.timeline-img {
+						position: absolute;
+						width: 50px;
+						height: 50px;
+						top: 15px;
+						left: 50%;
+						margin-left: -25px;
+						border-radius: 50%;
+						background: #212121;
+						transform: translateZ(0);
+						backface-visibility: hidden;
+						transition: all 0.3s ease;
+						@include MQ(ML) {
+							top: 5px;
+							left: 20px;
+						}
+						@include MQ(SM) {
+							width: 40px;
+							height: 40px;
+							top: 10px;
+							left: 15px;
+						}
+						.sprite {
+							display: block;
+							width: 24px;
+							height: 24px;
+							position: relative;
+							left: 50%;
+							top: 50%;
+							margin-left: -12px;
+							margin-top: -12px;
+							background-repeat: no-repeat;
+							background-size: 100%;
+							@include MQ(SM) {
+								width: 20px;
+								height: 20px;
+								margin-left: -10px;
+								margin-top: -10px;
+							}
+							&.university {
+								background-image: url('../images/icons/graduate-cap.png');
+							}
+							&.research {
+								background-image: url('../images/icons/search.png');
+							}
+							&.industry {
+								background-image: url('../images/icons/briefcase.png');
+							}
+							&.academic {
+								background-image: url('../images/icons/notebook.png');
+							}
+						}
+					}
+					.timeline-content {
+						float: right;
+						position: relative;
+						background: $dark-grey;
+						border-radius: 3px;
+						margin-left: 0;
+						padding: 1.5em;
+						width: 45%;
+						opacity: 0.85;
+						transition: all 0.3s ease;
+						@include MQ(L) {
+							left: 0px;
+							padding-bottom: 2.5em;
+						}
+						@include MQ(ML) {
+							margin-left: 70px;
+							right: auto;
+							width: auto;
+						}
+						@include MQ(SM) {
+							margin-left: 50px;
+							padding: 1.5em 1em 2.5em;
+						}
+						&:hover, &:focus {
+							opacity: 1;
+							+ .timeline-img {
+								background: $blue;
+							}
+						}
+						&:before {
+							content: '';
+							position: absolute;
+							top: 24px;
+							right: 100%;
+							height: 0;
+							width: 0;
+							border: 15px solid transparent;
+							border-color: transparent;
+							border-right-color: $dark-grey;
+							@include MQ(ML) {
+								top: 16px;
+								right: 100%;
+								left: auto;
+								border: 15px solid transparent;
+								border-right: 15px solid $dark-grey;
+							}
+						}
+						&:after {
+							content: "";
+							display: table;
+							clear: both;
+						}
+						.position {
+							color: $white;
+							margin: 5px 0 10px;
+							font-size: 18px;
+							display: inline-block;
+							text-transform: uppercase;
+							font-family: $Gotham, $sans-serif-stack;
+						}
+						.company {
+							margin: 0 0 10px 0;
+							font-size: 15px;
+							font-weight: 500;
+							a {
+								color: $blue;
+								display: inline;
+								transition: all 0.3s ease;
+								&:hover, &:focus {
+									color: #00dded;
+								}
+							}
+						}
+						.job-desc {
+							margin: 1em 0;
+							font-size: 1em;
+							line-height: 1.5;
+							@include MQ(SM) {
+								font-size: 1em;
+								line-height: 1.5;
+							}
+						}
+					}
+					.date {
+						font-size: 1em;
+						font-weight: 500;
+						display: inline-block;
+						color: $white;
+						font-family: $Gotham, $sans-serif-stack;
+						text-transform: uppercase;
+						position: absolute;
+						width: 100%;
+						left: 55%;
+						top: 30px;
+						@include MQ(ML) {
+							font-size: 14px;
+							color: $light-grey;
+							position: absolute;
+							top: auto;
+							bottom: 20px;
+							left: 95px;
+						}
+						@include MQ(SM) {
+							left: 66px;
+						}
+					}
+				}
+			}
+		}
+		.down-arrow {
+			display: block;
+			margin: 0 auto;
+			border-color: transparent;
+			border-top-color: $blue;
+			border-style: solid;
+			border-width: 15px 7px 0;
+			width: 0;
+			height: 0;
+			position: relative;
+			line-height: 0;
+			@include MQ(ML) {
+				margin-left: 13.5px;
+			}
+			@include MQ(SM) {
+				margin-left: 3.5px;
+			}
+		}
+	}
+
+	.experience-section {
+		background-image: url('../images/bg-experience/resume3.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		//@include MQ(L) {
+		//	background-image: url('../images/bg-experience/experience-lg.jpg');
+		//}
+		//@include MQ(MM) {
+		//	background-image: url('../images/bg-experience/experience-md.jpg');
+		//}
+		//@include MQ(S660) {
+		//	background-image: url('../images/bg-experience/experience-sm.jpg');
+		//}
+		//@include MQ(SM) {
+		//	background-image: url('../images/bg-experience/experience-xs.jpg');
+		//}
+
+		.overlay-wrapper {
+			background-image: linear-gradient(to bottom, rgba(0, 0, 0, $overlayOpacity), rgba(0, 0, 0, $overlayOpacity),
+							rgba(0, 0, 0, $overlayOpacity), rgba(0, 0, 0, $overlayOpacity), rgba(0, 0, 0, $overlayOpacity));
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.experience-section {
+
+		.content {
+			@include padding(4em, 2em);
+		}
+
+		.section-heading {
+			text-align: center;
+		}
+	}
+
+	.skill-spotlight {
+
+		//@include vendor('text-align', 'center');
+		//@include vendor('display', 'flex');
+
+        .skill-wrapper {
+			@include padding(4em, 2em);
+		}
+
+		.skill-content {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+
+				li {
+					background-position: left center;
+					background-repeat: no-repeat;
+					padding-left: 40px; /* Adjust according to image size to push text across. */
+					line-height: 40px;
+				}
+			}
+			#javascript {
+				 background-image: url('../images/icons/programming/javascript-35.png');
+			 }
+			#nodejs {
+				background-image: url('../images/icons/programming/node-js-35.png');
+			}
+			#html5 {
+				background-image: url('../images/icons/programming/html-5-35.png');
+			}
+			#css3 {
+				background-image: url('../images/icons/programming/css3-35.png');
+			}
+			#typescript {
+				background-image: url('../images/icons/programming/typescript-35.png');
+			}
+			#javaj2ee {
+				background-image: url('../images/icons/programming/java-35.png');
+			}
+			#es6 {
+				background-image: url('../images/icons/programming/es6-35.png');
+			}
+			#jest {
+				background-image: url('../images/icons/programming/jest-35.png');
+			}
+			#enzyme {
+				background-image: url('../images/icons/programming/airbnb-35.png');
+			}
+			#cypress {
+				background-image: url('../images/icons/programming/cypress-35.png');
+			}
+			#webpack {
+				background-image: url('../images/icons/programming/webpack-35.png');
+			}
+			#materialUI {
+				background-image: url('../images/icons/programming/material-ui-35.png');
+			}
+			#bootstrap {
+				background-image: url('../images/icons/programming/bootstrap-35.png');
+			}
+			#highchart {
+				background-image: url('../images/icons/programming/highcharts-35.png');
+			}
+			#yarn {
+				background-image: url('../images/icons/programming/yarn-35.png');
+			}
+			#npm {
+				background-image: url('../images/icons/programming/npm-35.png');
+			}
+			#reactjs {
+				background-image: url('../images/icons/programming/react-35.png');
+			}
+			#redux {
+				background-image: url('../images/icons/programming/redux-35.png');
+			}
+			#angularjs {
+				background-image: url('../images/icons/programming/angularjs-35.png');
+			}
+			#springframework {
+				background-image: url('../images/icons/programming/springframework-35.png');
+			}
+			#springboot {
+				background-image: url('../images/icons/programming/springboot-35.png');
+			}
+			#intellij {
+				background-image: url('../images/icons/programming/intellij-idea-35.png');
+			}
+			#eclipse {
+				background-image: url('../images/icons/programming/eclipse-35.png');
+			}
+			#github {
+				background-image: url('../images/icons/programming/github-35.png');
+			}
+			#gitlab {
+				background-image: url('../images/icons/programming/gitlab-35.png');
+			}
+			#svn {
+				background-image: url('../images/icons/programming/svn-35.png');
+			}
+			#jira {
+				background-image: url('../images/icons/programming/jira-35.png');
+			}
+			#rally {
+				background-image: url('../images/icons/programming/rally-35.png');
+			}
+			#plantuml {
+				background-image: url('../images/icons/programming/plantuml-35.png');
+			}
+			#postman {
+				background-image: url('../images/icons/programming/postman-35.png');
+			}
+			#chromedevtools {
+				background-image: url('../images/icons/programming/chrome-35.png');
+			}
+
+		}
+	}
+
+
+    .certification-section {
+
+		h1 {
+			font-size: 1.75em;
+		}
+
+		.content {
+			@include padding(4em, 2em);
+		}
+
+		.section-heading {
+			text-align: center;
+		}
+
+		background-image: url('../images/icons/certificate/certificate.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		//@include MQ(L) {
+		//	background-image: url('../images/bg-experience/experience-lg.jpg');
+		//}
+		//@include MQ(MM) {
+		//	background-image: url('../images/bg-experience/experience-md.jpg');
+		//}
+		//@include MQ(S660) {
+		//	background-image: url('../images/bg-experience/experience-sm.jpg');
+		//}
+		//@include MQ(SM) {
+		//	background-image: url('../images/bg-experience/experience-xs.jpg');
+		//}
+
+		.overlay-wrapper {
+			background-image: linear-gradient(to bottom, rgba(0, 0, 0, $overlayOpacity), rgba(0, 0, 0, $overlayOpacity),
+							rgba(0, 0, 0, $overlayOpacity), rgba(0, 0, 0, $overlayOpacity), rgba(0, 0, 0, $overlayOpacity));
+			width: 100%;
+			height: 100%;
+		}
+
+		.certification-wrapper {
+			padding: 30px;
+			@include MQ(ML) {
+				padding-left: 0;
+			}
+			@include MQ(S600) {
+				padding: 30px 0;
+			}
+		}
+
+		.certification-content {
+				@include padding(4em, 2em);
+
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+
+				li {
+					background-position: left center;
+					background-repeat: no-repeat;
+					padding-left: 40px; /* Adjust according to image size to push text across. */
+					line-height: 40px;
+				}
+			}
+
+			.certificate-logo {
+				//background-image: url('../images/icons/certificate/degree.png');
+			}
+		}
+	}
+
