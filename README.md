@@ -11,7 +11,7 @@ For an overview of the project structure please refer to the [Gatsby documentati
 
 ## Install
 
-Make sure that you have the Gatsby CLI program installed:
+Version of npm packages in package.json are tested on node v 17.  Make sure that you have the Gatsby CLI program installed:
 
 ```sh
 npm install --global gatsby-cli
