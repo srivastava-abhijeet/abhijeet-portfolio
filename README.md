@@ -1,7 +1,9 @@
+## Demo 
+
 https://srivastava-abhijeet.github.io/resume/
 
 
-# Starter Template
+## Starter Template
 
 This project is based on Spectral by HTML5 UP https://html5up.net/spectral & https://github.com/anubhavsrivastava/gatsby-starter-spectral
 
