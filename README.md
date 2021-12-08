@@ -1,15 +1,15 @@
-## Demo 
+### Demo 
 
 https://srivastava-abhijeet.github.io/resume/
 
 
-## Starter Template
+### Starter Template
 
 This project is based on Spectral by HTML5 UP https://html5up.net/spectral & https://github.com/anubhavsrivastava/gatsby-starter-spectral
 
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
 
-## Install
+### Install
 
 Version of npm packages in package.json are tested on node v 17.  Make sure that you have the Gatsby CLI program installed:
 
@@ -23,7 +23,7 @@ npm install
 gatsby develop
 ```
 
-## Open the source code and start editing! ##
+### Open the source code and start editing! ##
 
     Your site is now running at `http://localhost:8000`!
 
